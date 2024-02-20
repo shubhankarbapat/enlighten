@@ -1,0 +1,17 @@
+
+.heroSection {
+  background-color: #1d6361;
+  padding: 40px 150px;
+  color: white;
+}
+
+/* .heroSection .heroSection_title {
+  color: white;
+  font-size: 100px;
+  margin-top: 0rem;
+} */
+
+.heroSection .heroSection_image {
+  padding: 40px;
+  border-radius: 30px;
+}

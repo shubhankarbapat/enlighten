@@ -1,3 +1,7 @@
+.container-nav{
+  padding: 0 50px;
+}
+
 .jumbotron {
   background-image: linear-gradient(to right, #007bff, #000);
   padding: 2rem 1rem; /* Adjust padding as needed */

@@ -9,21 +9,20 @@ import Login from "./pages/Login";
 import SingUp from "./pages/Register";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div>
-      <div>
+    <>
         <ToastContainer position="top-center" />
-        <TopNav />
-      </div>
+        <Navbar />
 
       <Routes>
         <Route index element={<Home />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
       </Routes>
-    </div>
+    </>
   );
 }
 

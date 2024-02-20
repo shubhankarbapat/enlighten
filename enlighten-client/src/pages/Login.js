@@ -30,8 +30,8 @@ function Login() {
 
   return (
     <div>
-      <div className="jumbotron square">Login</div>
-      <div className="container col-md-4 offset-md-4 pb-5">
+      
+      <div className="container col-md-4 offset-md-4 pb-5 m-5">
         <form onSubmit={handleSubmit} className="d-flex flex-column">
           <input
             type="email"
