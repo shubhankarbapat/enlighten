@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { SyncOutlined } from "@ant-design/icons";
+import UserContext from "../context/UserContext";
 
 function Register() {
-  const [name, setName] = useState("Ryan");
-  const [email, setEmail] = useState("ryan@gmail.com");
-  const [password, setPassword] = useState("ssssss");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const { user, setUser } = useContext(UserContext);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user != null) navigate("/");
+  }, [user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -62,7 +70,7 @@ function Register() {
 
           <button
             type="submit"
-            className="btn align-self-start btn-primary"
+            className="btn btn-primary"
             disabled={!name || !email || !password || loading}
           >
             {loading ? <SyncOutlined spin /> : "Submit"}
