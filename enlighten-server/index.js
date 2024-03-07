@@ -15,7 +15,7 @@ const app = express();
 dotenv.config();
 
 // apply middlewares
-app.use(express.json());
+app.use(express.json({ limit: "5mb" }));
 app.use(cookieParser());
 app.use(cors());
 app.use(morgan("dev"));
@@ -30,7 +30,7 @@ try {
 
 // routes
 const routeFiles = fs.readdirSync("./routes");
-console.log(routeFiles);
+// console.log(routeFiles);
 
 // // Loop through each file
 routeFiles.forEach((file) => {

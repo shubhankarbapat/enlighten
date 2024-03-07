@@ -8,7 +8,7 @@ import UserContext from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState("ryan@gmail.com");
+  const [email, setEmail] = useState("stripeseller@gmail.com");
   const [password, setPassword] = useState("ssssss");
   const [loading, setLoading] = useState(false);
 
@@ -33,7 +33,7 @@ function Login() {
       setUser(data);
       // Save to LocalStorage
       window.localStorage.setItem("user", JSON.stringify(data));
-      navigate("/");
+      navigate("/user");
 
       // setLoading(false);
     } catch (err) {

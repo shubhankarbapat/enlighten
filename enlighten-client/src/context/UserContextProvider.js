@@ -23,7 +23,7 @@ const UserContextProvider = ({ children }) => {
           axios
             .get(`/api/logout`)
             .then((data) => {
-              console.log("/401 error > logout");
+              // console.log("/401 error > logout");
               setUser({ user: null });
               window.localStorage.removeItem("user");
               navigate("/login");
