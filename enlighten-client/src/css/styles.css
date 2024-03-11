@@ -12,3 +12,6 @@
 .square {
   border-radius: 0px;
 }
+.logout-link {
+  float: right;
+}

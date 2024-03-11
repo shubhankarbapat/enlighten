@@ -1,17 +1,27 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { SyncOutlined } from "@ant-design/icons";
+import UserContext from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState("ryan@gmail.com");
+  const [email, setEmail] = useState("stripeseller@gmail.com");
   const [password, setPassword] = useState("ssssss");
   const [loading, setLoading] = useState(false);
 
+  const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user != null) navigate("/");
+  }, [user]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     // console.table({ name, email, password });
     try {
       setLoading(true);
@@ -19,7 +29,11 @@ function Login() {
         email,
         password,
       });
-      console.log("Login response", data);
+      // console.log("Login response", data);
+      setUser(data);
+      // Save to LocalStorage
+      window.localStorage.setItem("user", JSON.stringify(data));
+      navigate("/user");
 
       // setLoading(false);
     } catch (err) {
@@ -52,7 +66,7 @@ function Login() {
 
           <button
             type="submit"
-            className="btn align-self-start btn-primary"
+            className="btn btn-primary"
             disabled={!email || !password || loading}
           >
             {loading ? <SyncOutlined spin /> : "Submit"}
