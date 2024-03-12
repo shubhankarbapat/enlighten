@@ -1,7 +1,8 @@
 import React from "react";
-import { Flex, Image, Typography, Button } from "antd";
+import { Flex, Image, Typography, Button, Card } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import heroImg from "../Media/heroImg.jpg";
+import CourseCard from "../components/CourseCard";
 import "./Home.css";
 
 const { Title, Text } = Typography;
@@ -72,6 +73,13 @@ const heroSecBtn2 = {
   fontWeight: "bold",
 };
 
+const courseSec = {
+  padding: "20px 150px",
+  textAlign: "center",
+};
+
+
+
 function Home() {
   return (
     <>
@@ -98,9 +106,14 @@ function Home() {
           <Image preview={false} width={500} style={heroSecImg} src={heroImg} />
         </Flex>
       </Flex>
-      <Flex vertical>
-        <Title>Our Popular Courses</Title>
-        <Title>The most popular courses</Title>
+      <Flex vertical style={courseSec}>
+        <Title className="mt-5">Our Popular Courses</Title>
+        <Title level={5} className="mt-0">
+          The most popular courses presented to you
+        </Title>
+        <Flex>
+            <CourseCard/>
+        </Flex>
       </Flex>
     </>
   );
